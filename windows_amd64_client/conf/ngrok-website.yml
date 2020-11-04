@@ -1,0 +1,11 @@
+server_addr: <ngrok.website.com>:4443
+trust_host_root_certs: false
+tunnels:
+  mstsc:
+    subdomain: 13389
+    proto:
+      http: 127.0.0.1:3389
+  web:
+    subdomain: web
+    proto:
+      http: 8080

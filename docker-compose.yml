@@ -1,0 +1,15 @@
+server:
+    image: zhaopan/ngrok
+    container_name: ngrok-server
+    restart: always
+    ports:
+      - "80:80"      # 80
+      - "443:443"    # 443
+      - "4443:4443"  # 4443
+      - "3389:3389"  # 3389
+      - "8080:8080"  # 8080
+    volumes:
+      - /mnt/docker/data/ngrok:/myfiles
+    environment:
+      - DOMAIN=<ngrok.website.com>
+    command: /bin/sh /server.sh
