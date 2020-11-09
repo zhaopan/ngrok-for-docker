@@ -1,0 +1,11 @@
+<service>
+  <id>ngrok</id>
+  <name>ngrok Service</name>
+  <description>High Performance ngrok Service</description>
+  <logpath>D:\sourcecode\git\docker-ngrok\windows_amd64_client\logs</logpath>
+  <log mode="roll-by-size">
+    <sizeThreshold>10240</sizeThreshold>
+    <keepFiles>8</keepFiles>
+  </log>
+  <executable>D:\sourcecode\git\docker-ngrok\windows_amd64_client\start.bat</executable>
+</service>
