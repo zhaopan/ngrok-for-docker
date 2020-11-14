@@ -11,6 +11,7 @@ docker build -t zhaopan/ngrok .
 ```
 
 ## RUN SERVER
+
 * you must mount your folder (E.g `/mnt/docker/data/ngrok`) to container `/myfiles`
 * if it is the first run, it will generate the binaries file and CA in your floder `/mnt/docker/data/ngrok`
 * Wait a few minutes for the first startup, because you have to wait for the go compiler to complete the compilation
@@ -33,7 +34,9 @@ docker-compose up -d
 ```
 
 ## CONFIG CLIENT FOR WINDOWS
+
 * client folder(E.g `windows_amd64_client`)
+
 ```bash
 bin #ngrok.exe for windows_amd64
     ngrok.exe
@@ -45,6 +48,7 @@ start.ngrok.bat #windows bat
 ```
 
 * ngrok.yml
+
 ```yml
 server_addr: <ngrok.website.com>:4443
 trust_host_root_certs: false
@@ -60,6 +64,7 @@ tunnels:
 ```
 
 * start.ngrok.bat
+
 ```bat
 bin\ngrok -config=conf\ngrok-website.yml -log=logs\ngrok_log.txt start mstsc web
 ```
