@@ -1,4 +1,7 @@
 server:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: zhaopan/ngrok
     container_name: ngrok-server
     restart: always
