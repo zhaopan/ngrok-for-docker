@@ -1,39 +1,61 @@
-# DOCKER NGROK IMAGE
+# Ngrok For Docker
 
-## BUILD IMAGE
+## Download
 
 ```bash
-git clone https://github.com/zhaopan/docker-ngrok.git
-
-cd docker-ngrok
-
-docker build -t zhaopan/ngrok .
+# clone
+git clone https://github.com/zhaopan/ngrok-for-docker.git
 ```
 
-## RUN SERVER
+## Init
+
+```bash
+cd ngrok-for-docker
+
+# Copy Docker.env
+cp .env.example .env
+```
+
+## Build
+
+```bash
+# Dockerfile build
+docker build -t zhaopan/ngrok .
+#
+# or docker-compose
+#
+docker-compose up --build
+```
+
+## Run
 
 * you must mount your folder (E.g `/mnt/docker/data/ngrok`) to container `/myfiles`
 * if it is the first run, it will generate the binaries file and CA in your floder `/mnt/docker/data/ngrok`
 * Wait a few minutes for the first startup, because you have to wait for the go compiler to complete the compilation
 
-```bash
-# mkdir ngrok data floder
-mkdir -p /mnt/docker/data/ngrok
+### Run-Init
 
-# with Dockerfile
+```bash
+# Mkdir ngrok data floder
+mkdir -p /mnt/docker/data/ngrok
+```
+
+### Runing
+
+```bash
+# run Dockerfile
 docker run -idt \
 --restart=always \
 --name=ngrok-server \
 -v /mnt/docker/data/ngrok:/myfiles \
 -e DOMAIN=<ngrok.website.com> zhaopan/ngrok /bin/sh /server.sh
-
-# or with docker-compose
-
-cd docker-ngrok
+#
+# or run docker-compose
+#
 docker-compose up -d
 ```
 
-## CONFIG CLIENT FOR WINDOWS
+## Config Client for Windows
 
 * client folder(E.g `windows_amd64_client`)
 
@@ -69,10 +91,9 @@ tunnels:
 bin\ngrok -config=conf\ngrok-website.yml -log=logs\ngrok_log.txt start mstsc web
 ```
 
-## RUN
+### Run
 
 * Double-click to run the `start.ngrok.bat` file to start the ngrok agent
-
 
 ## Thanks
 
@@ -82,7 +103,9 @@ bin\ngrok -config=conf\ngrok-website.yml -log=logs\ngrok_log.txt start mstsc web
 
 [winsw/winsw](https://github.com/winsw/winsw)
 
-## REFERENCE LINK
+[ogenes/docker-lnmp](https://github.com/ogenes/docker-lnmp)
+
+## Reference Link
 
 [golang](https://github.com/golang/go)
 

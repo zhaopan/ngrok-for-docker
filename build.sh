@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-if [ "${DOMAIN}" == "**None**" ]; then
+if [ "${DOMAIN}" == "<ngrok.website.com>" ]; then
     echo "Please set DOMAIN"
     exit 1
 fi
