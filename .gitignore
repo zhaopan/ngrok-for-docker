@@ -1,0 +1,7 @@
+logs/
+data/
+id_rsa*
+.vs
+.idea
+.env
+.DS_Store
